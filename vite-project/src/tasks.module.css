@@ -1,0 +1,7 @@
+.strikeWithThrough {
+    text-decoration: line-through;
+}
+
+.strikeNoThrough {
+    text-decoration: none;
+}
