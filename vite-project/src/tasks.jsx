@@ -1,23 +1,28 @@
 import styles from './tasks.module.css'
 
-export function Task({taskId, title, completed, onCheckbleCompleted, onDeleteComment}) {
+export function Task({ taskId, title, completed, onCheckbleCompleted, onDeleteComment }) {
   function handleDeleteTask() {
     onDeleteComment(taskId)
   }
 
   function handleCheckbleCompleted() {
     console.log(completed, taskId)
-    onCheckbleCompleted(taskId,!completed)
+    onCheckbleCompleted(taskId, !completed)
   }
 
-  
+
   return (
     <li>
       <div>
-        <input type="checkbox" defaultChecked={completed} onClick={handleCheckbleCompleted}/>
-        <p className={completed ? styles.strikeWithThrough : styles.strikeNoThrough}>{title} --- '{completed ? 'concluído' : 'nao concluído'}'</p>
+        <div className={styles['checkbox-container']}>
+          <input id='checkbox1' type="checkbox" onClick={handleCheckbleCompleted} defaultChecked={completed} />
+          <label htmlFor="checkbox1" ></label>
+        </div>
+
+        <p className={completed ? styles.strikeWithThrough : styles.strikeNoThrough}>{title}</p>
+
       </div>
-      <button onClick={handleDeleteTask}>lixeira</button>
+      <button onClick={handleDeleteTask}><i class="bi bi-trash"></i></button>
     </li>
   )
 

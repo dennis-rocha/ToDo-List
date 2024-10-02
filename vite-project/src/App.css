@@ -1,3 +1,10 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .app-header {
     width: 100%;
     height: 200px;
@@ -71,5 +78,84 @@
     cursor: pointer;
     color: var(--gray-100);
     font-weight: 700;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    gap: 8px;
 }
+
+.app-form button > i {
+    font-size: 1.4rem;
+    
+} 
+
+section {
+    width: 736px;
+    margin-top: 65px;
+}
+
+section header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+section header div {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.4rem;
+    gap: 8px;
+}
+
+section header div p {
+    font-size: 1.4rem;
+}
+
+.tasks-done {
+    color: var(--purple);
+}
+
+.tasks-created {
+    color: var(--blue);
+}
+
+
+section header div span {
+    font-size: 1.2rem;
+    color: var(--gray-200);
+    background-color: var(--gray-400);
+    border-radius: 999px;
+    padding: 2px 8px;
+}
+
+section > div {
+    margin-top: 24px;
+}
+
+.no-tasks {
+    color: var(--gray-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 64px;
+    gap: 2px;
+    border-radius: 8px;
+    border-top: 2px solid var(--gray-400);
+    padding: 64px;
+}
+
+.no-tasks > strong , p {
+    font-size: 1.6rem;
+    font-weight: 700px;
+    color: var(--gray-300);
+}
+
+.no-tasks > i {
+    font-size: 5.6rem;
+}
+
+.tasks-list {
+    margin-top: 24px;
+}
+

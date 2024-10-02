@@ -1,7 +1,78 @@
 .strikeWithThrough {
     text-decoration: line-through;
+    color: var(--gray-300);
 }
 
 .strikeNoThrough {
     text-decoration: none;
+    color: var(--gray-100);
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background-color: var(--gray-500);
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+li>div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+}
+
+li>div p {
+    font-size: 1.4rem;
+}
+
+
+.checkbox-container input[type="checkbox"] {	
+    display: none;
+}
+
+.checkbox-container input + label:before {
+    content: "";
+    width: 17.45px;
+    height: 17.45px;
+    border-radius: 100%;
+    border: 3px solid var(--blue);
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.checkbox-container input:checked + label:before {
+    content: "\F272";
+    font-family: 'bootstrap-icons'; 
+    background-color: var(--blue-dark);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--blue-dark);
+}
+
+li>button {
+    background-color: transparent;
+    border: none;
+}
+
+li>button i {
+    color: var(--gray-300);
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 2px;
+    transition: color 0.2s;
+}
+
+li>button i:hover {
+    color: var(--danger);
 }

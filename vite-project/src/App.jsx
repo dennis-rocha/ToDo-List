@@ -2,18 +2,21 @@ import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
 import rocket from './assets/rocket.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Task } from './tasks'
 
 function App() {
-  const [tasks, setTasks] = useState([{
-      id: 1,
-      title: 'Teste',
-      completed: false
-    }])
+  const [tasks, setTasks] = useState([])
 
   const [textTitle,setTextTitle] = useState('')
+
+  const tasksCompleted = tasks.reduce((value, task) => {
+    if (task.completed) {
+      return value + 1
+    }
+  
+    return value
+    }, 0)
 
 
   function handleChangeTexteTitle() {
@@ -64,31 +67,35 @@ function App() {
       </header>
       <div className="app-form">
         <form action="" onSubmit={handleAddTask}>
-          <input type="text" onChange={handleChangeTexteTitle} value={textTitle} placeholder="Adicione uma nova tarefa" />
-          <button>Criar</button>
+          <input type="text" className='shadow' onChange={handleChangeTexteTitle} value={textTitle} placeholder="Adicione uma nova tarefa" />
+          <button className='shadow'>Criar<i className="bi bi-plus-circle"></i></button>
         </form>
       </div>
       <section>
         <header>
           <div>
-            <p>Tarefas Criadas</p>
-            <span>0</span>
+            <p className='tasks-created'>Tarefas Criadas</p>
+            <span>{tasks.length}</span>
           </div>
           <div>
-            <p>Concluídas</p>
-            <span>0</span>
+            <p className='tasks-done'>Concluídas</p>
+            <span>{tasks.length > 0 ? (tasksCompleted + ' de ' + tasks.length) : (0)}</span>
           </div>
         </header>
         <div>
           {tasks.length != 0 ? (
-            <ul>
+            <ul className='tasks-list'>
               {tasks.map((task) => (
                 console.log(task),
                 <Task key={task.id} taskId={task.id} title={task.title} completed={task.completed} onCheckbleCompleted={handleCheckbleCompleted} onDeleteComment={handleDeleteComment}/>
               ))}
             </ul>
           ) : (
-            <p>Nenhuma tarefa criada</p>
+            <div className='no-tasks'>
+              <i className="bi bi-list-check"></i>
+              <strong>Você ainda não tem tarefas cadastradas</strong>
+              <p>Crie tarefas e organize seus itens a fazer</p>
+            </div>
           )}
         </div>
       </section>
