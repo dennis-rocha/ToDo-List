@@ -2,11 +2,12 @@ import styles from './tasks.module.css'
 
 export function Task({ taskId, title, completed, onCheckbleCompleted, onDeleteComment }) {
   function handleDeleteTask() {
+    console.log(taskId, title)
     onDeleteComment(taskId)
   }
 
   function handleCheckbleCompleted() {
-    console.log(completed, taskId)
+    console.log(completed, taskId, title)
     onCheckbleCompleted(taskId, !completed)
   }
 
@@ -15,14 +16,14 @@ export function Task({ taskId, title, completed, onCheckbleCompleted, onDeleteCo
     <li>
       <div>
         <div className={styles['checkbox-container']}>
-          <input id='checkbox1' type="checkbox" onClick={handleCheckbleCompleted} defaultChecked={completed} />
-          <label htmlFor="checkbox1" ></label>
+          <input id={taskId} type="checkbox" onClick={handleCheckbleCompleted} defaultChecked={completed} />
+          <label htmlFor={taskId} ></label>
         </div>
 
         <p className={completed ? styles.strikeWithThrough : styles.strikeNoThrough}>{title}</p>
 
       </div>
-      <button onClick={handleDeleteTask}><i class="bi bi-trash"></i></button>
+      <button onClick={handleDeleteTask}><i className="bi bi-trash"></i></button>
     </li>
   )
 

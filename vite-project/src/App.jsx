@@ -87,7 +87,12 @@ function App() {
             <ul className='tasks-list'>
               {tasks.map((task) => (
                 console.log(task),
-                <Task key={task.id} taskId={task.id} title={task.title} completed={task.completed} onCheckbleCompleted={handleCheckbleCompleted} onDeleteComment={handleDeleteComment}/>
+                <Task key={task.id} 
+                  taskId={task.id} 
+                  title={task.title} 
+                  completed={task.completed} 
+                  onCheckbleCompleted={handleCheckbleCompleted} 
+                  onDeleteComment={handleDeleteComment}/>
               ))}
             </ul>
           ) : (
