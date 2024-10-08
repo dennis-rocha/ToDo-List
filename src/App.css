@@ -164,21 +164,31 @@ section > div {
 }
 
 @media (max-width: 768px) {
-    .app-form {
-        margin: 0px 2px;
+    main {
+        padding: 0 10px;
+    }
+
+    .app-header {
+        width: 100%;
     }
 
     .app-form input {
-        width: 100%;
+        width: auto;
+        padding: 0 20px;
     }
 
     section {
         width: 100%;
-        margin: 0px 2px;
+        margin: 30px auto;
     }
+
+    section > header {
+        width: 100%;
+    }    
 
     .app-form input::placeholder {
         font-size: 1.4rem;
+        padding: 10px 0;
     }
 
     .app-form {
